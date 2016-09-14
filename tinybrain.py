@@ -1,42 +1,31 @@
-import sys; p = sys.argv[1]
-def w(c):
-    s = sys.stdout;s.write(str(c));s.flush()
-cp, dp, d, j = 0, 0, [0], []
-while cp < len(p):
-    x = p[cp]
-    if x == '>':
-        d.append(0)
-        dp += 1
-    elif x == '<':
-        d = [0] + d
-    elif x == '+':
-        d[dp] += 1
-    elif x == '-':
-        d[dp] -= 1
-    elif x == '.':
-        w((d[dp]))
-    elif x == ',':
-        d[dp] = (input('>'))
+import sys;p=sys.argv[1];
+def w(c): s=sys.stdout;s.write(str(c)+' ');s.flush()
+i,j,d,g=0,0,[0],[]
+while i<len(p):
+    switch=0
+    x,y=p[i],d[j]
+    if x=='>':d.append(0);j+=1
+    elif x=='<':d=[0]+d
+    elif x=='+':d[j]+=1
+    elif x=='-':d[j]-=1
+    elif x=='.':w(d[j])
+    elif x==',':d[j]=(input('>'))
     elif x == '[':
-        if d[dp] == 0:
-            c = 1
-            while True:
-                cp += 1
-                if p[cp] == '[':
-                    c += 1
-                elif p[cp] == ']':
-                    c -= 1
-                    if c == 0:
-                        break
+        switch = 1
     elif x == ']':
-        if d[dp] != 0:
-            c = 1
+        switch = -1
+
+    if switch != 0:
+        if (switch==1 and y==0) or y != 0:
+            c=1
+            l,r = ('[',']') if switch==1 else (']','[')
             while True:
-                cp -= 1
-                if p[cp] == ']':
+                i+=switch
+                if p[i] == l:
                     c += 1
-                elif p[cp] == '[':
+                elif p[i] == r:
+                    print(switch,i,p[i],c)
                     c -= 1
-                    if c == 0:
-                        break
-    cp += 1
+                    if c == 0: break
+            print('broke')
+    i += 1
