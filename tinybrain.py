@@ -1,6 +1,6 @@
 import sys; p = sys.argv[1]
 def w(c):
-    s = sys.stdout;s.write(str(c));s.flush()
+    s = sys.stdout;s.write(str(c)+' ');s.flush()
 cp, dp, d, j = 0, 0, [0], []
 while cp < len(p):
     x = p[cp]
