@@ -1,5 +1,5 @@
 import sys;p=sys.argv[1]
-def w(c): s=sys.stdout;s.write(str(c)+' ');s.flush()
+def w(c):s=sys.stdout;s.write(str(c)+' ');s.flush()
 i=j=0;d=[0]
 while i<len(p):
  s=0;x,y=p[i],d[j]
@@ -11,8 +11,8 @@ while i<len(p):
  elif x==',':d[j]=(input('>'))
  elif x=='[':s=1
  elif x==']':s=-1
- if s != 0:
-  if (s==1 and y==0) or (s==-1 and y!=0):
+ if s!=0:
+  if(s==1 and y==0) or (s==-1 and y!=0):
    c=1;l,r=('[',']') if s==1 else (']','[')
    while True:
     i+=s
