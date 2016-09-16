@@ -5,8 +5,7 @@ while i<len(p):
  s=0;x,y=p[i],d[j]
  if x=='>':d.append(0);j+=1
  elif x=='<':d=[0]+d
- elif x=='+':d[j]+=1
- elif x=='-':d[j]-=1
+ elif x in '+-':d[j]+=(-1,1)[x=='+']
  elif x=='.':w(d[j])
  elif x==',':d[j]=(input('>'))
  elif x in ['[',']']:s=(1,-1)[x==']']
