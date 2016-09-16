@@ -12,12 +12,12 @@ while i<len(p):
  elif x=='[':s=1
  elif x==']':s=-1
  if s != 0:
-  if (s==1 and y==0) or (s==-1 and y != 0):
+  if (s==1 and y==0) or (s==-1 and y!=0):
    c=1;l,r=('[',']') if s==1 else (']','[')
    while True:
     i+=s
     if p[i]==l:c+=1
     elif p[i]==r:
-     c -= 1
-     if c == 0: break
+     c-=1
+     if c==0:break
  i+=1
