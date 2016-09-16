@@ -8,7 +8,7 @@ while i<len(p):
  elif x in '+-':d[j]+=(-1,1)[x=='+']
  elif x=='.':w(d[j])
  elif x==',':d[j]=(input('>'))
- elif x in ['[',']']:s=(1,-1)[x==']']
+ elif x in '[]':s=(1,-1)[x==']']
  if s!=0:
   if(s==1 and y==0) or (s==-1 and y!=0):
    c=1;l,r=('[',']') if s==1 else (']','[')
