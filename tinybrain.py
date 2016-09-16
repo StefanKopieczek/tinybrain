@@ -15,8 +15,9 @@ while i<len(p):
     elif x == ']':
         switch = -1
 
+
     if switch != 0:
-        if (switch==1 and y==0) or y != 0:
+        if (switch==1 and y==0) or (switch==-1 and y != 0):
             c=1
             l,r = ('[',']') if switch==1 else (']','[')
             while True:
@@ -24,8 +25,6 @@ while i<len(p):
                 if p[i] == l:
                     c += 1
                 elif p[i] == r:
-                    print(switch,i,p[i],c)
                     c -= 1
                     if c == 0: break
-            print('broke')
     i += 1
