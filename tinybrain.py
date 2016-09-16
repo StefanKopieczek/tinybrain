@@ -1,42 +1,20 @@
-import sys; p = sys.argv[1]
-def w(c):
-    s = sys.stdout;s.write(str(c)+' ');s.flush()
-cp, dp, d, j = 0, 0, [0], []
-while cp < len(p):
-    x = p[cp]
-    if x == '>':
-        d.append(0)
-        dp += 1
-    elif x == '<':
-        d = [0] + d
-    elif x == '+':
-        d[dp] += 1
-    elif x == '-':
-        d[dp] -= 1
-    elif x == '.':
-        w((d[dp]))
-    elif x == ',':
-        d[dp] = (input('>'))
-    elif x == '[':
-        if d[dp] == 0:
-            c = 1
-            while True:
-                cp += 1
-                if p[cp] == '[':
-                    c += 1
-                elif p[cp] == ']':
-                    c -= 1
-                    if c == 0:
-                        break
-    elif x == ']':
-        if d[dp] != 0:
-            c = 1
-            while True:
-                cp -= 1
-                if p[cp] == ']':
-                    c += 1
-                elif p[cp] == '[':
-                    c -= 1
-                    if c == 0:
-                        break
-    cp += 1
+import sys;p=sys.argv[1]
+def w(c):s=sys.stdout;s.write(str(c)+' ');s.flush()
+i=j=0;d=[0];a=abs;b=bool
+while i<len(p):
+ s=0;x,y=p[i],d[j]
+ if x=='>':d.append(0);j+=1
+ elif x=='<':d=[0]+d
+ elif x in '+-':d[j]+=(-1,1)[x=='+']
+ elif x=='.':w(d[j])
+ elif x==',':d[j]=(input('>'))
+ elif x in '[]':s=(1,-1)[x==']']
+ if s!=0 and b(s+1)!=b(y):
+  c=1;l,r=('[',']') if s==1 else (']','[')
+  while 1:
+   i+=s
+   if p[i]==l:c+=1
+   elif p[i]==r:
+    c-=1
+    if c==0:break
+ i+=1
