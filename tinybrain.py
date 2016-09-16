@@ -3,7 +3,7 @@ def w(c):s=sys.stdout;s.write(str(c)+' ');s.flush()
 i=j=0;d=[0];a=abs;b=bool
 while i<len(p):
  s=0;x,y=p[i],d[j]
- if x=='>':d.append(0);j+=1
+ if x=='>':d+=[0];j+=1
  elif x=='<':d=[0]+d
  elif x in '+-':d[j]+=(-1,1)[x=='+']
  elif x=='.':w(d[j])
