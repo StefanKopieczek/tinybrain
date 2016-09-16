@@ -10,7 +10,7 @@ while i<len(p):
  elif x==',':d[j]=(input('>'))
  elif x in '[]':s=(1,-1)[x==']']
  if s!=0 and b(s+1)!=b(y):
-  c=1;l,r=('[',']') if s==1 else (']','[')
+  c=1;l,r=((']','['),('[',']'))[s==1]
   while 1:
    i+=s
    if p[i]==l:c+=1
