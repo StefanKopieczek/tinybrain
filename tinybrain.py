@@ -12,7 +12,7 @@ while i<len(p):
  if s!=0:
   if(s==1 and y==0) or (s==-1 and y!=0):
    c=1;l,r=('[',']') if s==1 else (']','[')
-   while True:
+   while 1:
     i+=s
     if p[i]==l:c+=1
     elif p[i]==r:
